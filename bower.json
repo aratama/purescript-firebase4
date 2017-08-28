@@ -1,0 +1,21 @@
+{
+  "name": "purescript-firebase3",
+  "authors": [
+    "aratama <aratama@example.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "purescript-aff": "^3.1.0",
+    "purescript-foreign-generic": "^5.0.0"
+  }
+}
