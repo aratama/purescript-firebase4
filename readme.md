@@ -1,6 +1,6 @@
-# purescript-firebase3
+# purescript-firebase4
 
-WIP Firebase 3.0 API Bindings.
+WIP. Firebase 4.x API Bindings for PureScript.
 
 There's already an another bindings for Firebase:
 
