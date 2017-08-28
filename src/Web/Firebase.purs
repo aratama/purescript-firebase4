@@ -10,7 +10,7 @@ import Control.Monad.Eff.Exception (Error)
 import Control.Monad.Aff (Aff, makeAff)
 import Data.Foreign (Foreign)
 import Data.Foreign.Class (class Encode, class Decode)
-import Data.Nullable (Nullable, toMaybe)
+import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Maybe (Maybe)
 import Prelude (Unit, (<<<))
 import Data.Generic.Rep (class Generic)
@@ -63,7 +63,11 @@ showEventType = case _ of
     ChildMoved -> "child_moved"
 
 -- firebase
-foreign import initializeApp :: ∀eff . Profile → Eff (firebase :: FIREBASE | eff) Firebase
+
+initializeApp :: ∀eff . Profile → Maybe String -> Eff (firebase :: FIREBASE | eff) Firebase
+initializeApp config name = _initializeApp config (toNullable name)
+
+foreign import _initializeApp :: ∀eff . Profile → Nullable String -> Eff (firebase :: FIREBASE | eff) Firebase
 
 foreign import database :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Database
 

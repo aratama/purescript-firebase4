@@ -2,10 +2,13 @@
 
 /* global firebase */
 
-exports.initializeApp = function(config){
-    return function(){
-        //var firebase = require('firebase');
-        return firebase.initializeApp(config);
+exports._initializeApp = function(config){
+    return function(name){
+        return function(){
+            var global = new Function("return this")();
+            var fb = global["firebase"] || (require && require("firebase"));
+            return fb.initializeApp(config, name);
+        };
     };
 };
 
