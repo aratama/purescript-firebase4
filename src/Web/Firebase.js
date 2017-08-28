@@ -7,7 +7,7 @@ exports._initializeApp = function(config){
         return function(){
             var global = new Function("return this")();
             var fb = global["firebase"] || (require && require("firebase"));
-            return fb.initializeApp(config, name);
+            return name === null ? fb.initializeApp(config) : fb.initializeApp(config, name);
         };
     };
 };
