@@ -1,12 +1,13 @@
 module Web.Firebase4.Type (
     Options(..), FIREBASE, Firebase, FirebaseError, Database, Reference, Snapshot, Auth, User, AuthProvider, UserCredential, EventType(..),
-    RedirectResult, showEventType
+    RedirectResult, showEventType, AuthCredential, AdditionalUserInfo
 ) where
 
 import Control.Monad.Eff (Eff, kind Effect)
 import Data.Foreign.Class (class Encode, class Decode)
 import Data.Generic.Rep (class Generic)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
+import Data.Maybe (Maybe)
 
 newtype Options = Options {
     apiKey :: String,
@@ -42,7 +43,16 @@ foreign import data User :: Type
 
 foreign import data AuthProvider :: Type
 
-foreign import data UserCredential :: Type
+type UserCredential = {
+    user :: Maybe User, 
+    credential :: Maybe AuthCredential, 
+    operationType :: Maybe String, -- (nullable string or undefined), 
+    additionalUserInfo :: Maybe AdditionalUserInfo -- (nullable firebase.auth.AdditionalUserInfo or undefined)
+}
+
+foreign import data AuthCredential :: Type 
+
+foreign import data AdditionalUserInfo :: Type 
 
 data EventType = Value | ChildAdded | ChildChanged | ChildRemoved | ChildMoved
 

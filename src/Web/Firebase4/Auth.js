@@ -84,7 +84,7 @@ exports.signInWithPopup = function(provider){
     };
 };
 
-exports.getRedirectResult = function(auth){
+exports.getRedirectResultEff = function(auth){
     return function(reject){
         return function(resolve){
             return function(){

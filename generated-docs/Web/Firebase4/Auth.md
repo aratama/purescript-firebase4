@@ -63,13 +63,7 @@ signInWithPopup :: forall eff. AuthProvider -> Auth -> (Error -> Eff (firebase :
 #### `getRedirectResult`
 
 ``` purescript
-getRedirectResult :: forall eff. Auth -> (Error -> Eff (firebase :: FIREBASE | eff) Unit) -> (RedirectResult -> Eff (firebase :: FIREBASE | eff) Unit) -> Eff (firebase :: FIREBASE | eff) Unit
-```
-
-#### `getRedirectResultAff`
-
-``` purescript
-getRedirectResultAff :: forall eff. Auth -> Aff (firebase :: FIREBASE | eff) RedirectResult
+getRedirectResult :: forall eff. Auth -> Aff (firebase :: FIREBASE | eff) UserCredential
 ```
 
 

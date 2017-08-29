@@ -71,7 +71,19 @@ data AuthProvider :: Type
 #### `UserCredential`
 
 ``` purescript
-data UserCredential :: Type
+type UserCredential = { user :: Maybe User, credential :: Maybe AuthCredential, operationType :: Maybe String, additionalUserInfo :: Maybe AdditionalUserInfo }
+```
+
+#### `AuthCredential`
+
+``` purescript
+data AuthCredential :: Type
+```
+
+#### `AdditionalUserInfo`
+
+``` purescript
+data AdditionalUserInfo :: Type
 ```
 
 #### `EventType`

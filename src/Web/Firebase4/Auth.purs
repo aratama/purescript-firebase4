@@ -1,16 +1,19 @@
 module Web.Firebase4.Auth (
     signInAnonymously, signInWithEmailAndPassword, signInWithRedirect, signInWithPopup, signOut,
-    onAuthStateChanged, getRedirectResult, getRedirectResultAff,
+    onAuthStateChanged, getRedirectResult,
     newTwitterAuthProvider, newFacebookAuthProvider, newGithubAuthProvider, newGoogleAuthProvider
 ) where 
 
+import Control.Monad.Except (runExcept)
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Exception (Error)
 import Control.Monad.Aff (Aff, makeAff)
 import Data.Nullable (Nullable, toMaybe, toNullable)
-import Data.Maybe (Maybe)
-import Prelude (Unit, (<<<))
-import Web.Firebase4.Type (FIREBASE, Auth, User, AuthProvider, UserCredential, RedirectResult)
+import Data.Maybe (Maybe(..))
+import Data.Either (Either(..))
+import Prelude (Unit, (<<<), (>>=), (||))
+import Web.Firebase4.Type (FIREBASE, Auth, User, AuthProvider, UserCredential, RedirectResult, AuthCredential)
+import Data.Foreign (Foreign, readNullOrUndefined, readString, unsafeFromForeign, isNull, isUndefined)
 
 foreign import signInAnonymously :: ∀eff . Auth → Eff (firebase :: FIREBASE | eff) Unit
 
@@ -46,7 +49,25 @@ foreign import signInWithPopup :: ∀eff . AuthProvider
     -> (UserCredential -> Eff (firebase :: FIREBASE | eff) Unit) 
     -> Eff (firebase :: FIREBASE | eff) Unit
 
-foreign import getRedirectResult :: ∀eff . Auth → (Error → Eff (firebase :: FIREBASE | eff) Unit) → (RedirectResult → Eff (firebase :: FIREBASE | eff) Unit) → Eff (firebase :: FIREBASE | eff) Unit
+foreign import getRedirectResultEff :: ∀eff . Auth 
+    → (Error → Eff (firebase :: FIREBASE | eff) Unit) 
+    → (UserCredentialRaw → Eff (firebase :: FIREBASE | eff) Unit) 
+    → Eff (firebase :: FIREBASE | eff) Unit
 
-getRedirectResultAff :: ∀eff . Auth → Aff (firebase :: FIREBASE | eff) RedirectResult
-getRedirectResultAff a = makeAff \reject resolve → getRedirectResult a reject resolve
+getRedirectResult :: ∀eff . Auth → Aff (firebase :: FIREBASE | eff) UserCredential
+getRedirectResult auth = makeAff \reject resolve → getRedirectResultEff auth reject (\raw -> resolve {
+    user: toMaybe raw.user , 
+    credential: toMaybe raw.credential, 
+    operationType: case runExcept (readString raw.operationType) of 
+        Left errors -> Nothing
+        Right op -> Just op,   
+    additionalUserInfo: if isNull raw.additionalUserInfo || isUndefined raw.additionalUserInfo then Nothing else unsafeFromForeign raw.additionalUserInfo
+})
+
+
+type UserCredentialRaw = {
+    user :: Nullable User, 
+    credential :: Nullable AuthCredential, 
+    operationType :: Foreign,
+    additionalUserInfo :: Foreign
+}
