@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "eslint src/**/*.js",    
-    "build": "purs compile bower_components/purescript-*/src/**/*.purs src/**/*.purs"
+    "build": "purs compile bower_components/purescript-*/src/**/*.purs src/**/*.purs", 
+    "postbuild": "pulp docs"
   },
   "author": "",
   "license": "MIT",

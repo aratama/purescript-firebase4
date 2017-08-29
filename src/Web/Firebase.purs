@@ -1,7 +1,8 @@
 module Web.Firebase4 (
     Profile(..), FIREBASE, Firebase, FirebaseError, Database, Reference, Snapshot, Auth, User, AuthProvider, UserCredential, EventType(..),
     initializeApp, database, auth, set, remove, onValue, on, once, off, child, onDisconnect, limitToLast, val, exists, forEach, key, numChildren, ref,
-    signInAnonymously, signInWithEmailAndPassword, signOut, onAuthStateChanged, newTwitterAuthProvider, newGithubAuthProvider, newGoogleAuthProvider,
+    signInAnonymously, signInWithEmailAndPassword, signOut, onAuthStateChanged, 
+    newTwitterAuthProvider, newFacebookAuthProvider, newGithubAuthProvider, newGoogleAuthProvider,
     signInWithRedirect, signInWithPopup, RedirectResult, getRedirectResult, getRedirectResultAff, uid, displayName, photoURL, isAnonymous, delete
 ) where
 
@@ -122,6 +123,8 @@ onAuthStateChanged :: ∀eff . (Maybe User → Eff (firebase :: FIREBASE | eff) 
 onAuthStateChanged callback = _onAuthStateChanged (callback <<< toMaybe)
 
 foreign import newTwitterAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
+
+foreign import newFacebookAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
 
 foreign import newGithubAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
 
