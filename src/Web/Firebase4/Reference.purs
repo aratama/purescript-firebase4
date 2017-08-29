@@ -1,5 +1,5 @@
 module Web.Firebase4.Reference (
-    set, remove, onValue, on, once, off, child, onDisconnect, limitToLast
+    set, remove, onValue, on, once, off, child, onDisconnect, toQuery
 ) where
 
 import Control.Monad.Eff (Eff, kind Effect)
@@ -12,7 +12,7 @@ import Data.Maybe (Maybe)
 import Prelude (Unit, (<<<))
 import Data.Generic.Rep (class Generic)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
-import Web.Firebase4.Type (FIREBASE, Reference, Snapshot, showEventType, EventType)
+import Web.Firebase4.Type (FIREBASE, Reference, Snapshot, showEventType, EventType, Query)
 
 foreign import set :: ∀eff . Foreign → Reference → Eff (firebase :: FIREBASE | eff) Unit
 
@@ -33,4 +33,6 @@ foreign import child :: ∀eff . String → Reference → Eff (firebase :: FIREB
 
 foreign import onDisconnect :: ∀eff . Reference → Eff (firebase :: FIREBASE | eff) Reference
 
-foreign import limitToLast :: ∀eff . Int → Reference → Eff (firebase :: FIREBASE | eff) Reference
+
+
+foreign import toQuery :: Reference -> Query 

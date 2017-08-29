@@ -48,10 +48,10 @@ child :: forall eff. String -> Reference -> Eff (firebase :: FIREBASE | eff) Ref
 onDisconnect :: forall eff. Reference -> Eff (firebase :: FIREBASE | eff) Reference
 ```
 
-#### `limitToLast`
+#### `toQuery`
 
 ``` purescript
-limitToLast :: forall eff. Int -> Reference -> Eff (firebase :: FIREBASE | eff) Reference
+toQuery :: Reference -> Query
 ```
 
 

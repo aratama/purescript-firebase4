@@ -68,6 +68,12 @@ data User :: Type
 data AuthProvider :: Type
 ```
 
+#### `Query`
+
+``` purescript
+data Query :: Type
+```
+
 #### `UserCredential`
 
 ``` purescript

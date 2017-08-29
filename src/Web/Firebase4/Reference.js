@@ -66,16 +66,13 @@ exports.off = function(reference){
     };
 };
 
-exports.limitToLast = function(limit){
-    return function(reference){
-        return function(){
-            return reference.limitToLast(limit);
-        };
-    };
-};
-
 exports.onDisconnect = function(reference){
     return function(){
         return reference.onDisconnect();
     };
+};
+
+
+exports.toQuery = function(ref){
+    return ref;
 };
