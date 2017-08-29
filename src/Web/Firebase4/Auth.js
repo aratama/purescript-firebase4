@@ -52,7 +52,7 @@ exports.newGoogleAuthProvider = function(){
     return new firebase.auth.GoogleAuthProvider();
 };
 
-exports.signInWithRedirect = function(provider){
+exports.signInWithRedirectEff = function(provider){
     return function(auth){
         return function(/*reject*/){
             return function(/*resolve*/){

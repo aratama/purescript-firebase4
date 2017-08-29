@@ -51,7 +51,7 @@ newGoogleAuthProvider :: forall eff. Eff (firebase :: FIREBASE | eff) AuthProvid
 #### `signInWithRedirect`
 
 ``` purescript
-signInWithRedirect :: forall eff. AuthProvider -> Auth -> Eff (firebase :: FIREBASE | eff) Unit
+signInWithRedirect :: forall eff. AuthProvider -> Auth -> Aff (firebase :: FIREBASE | eff) Unit
 ```
 
 #### `signInWithPopup`

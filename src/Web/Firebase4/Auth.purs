@@ -31,9 +31,20 @@ foreign import newGithubAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff
 
 foreign import newGoogleAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
 
-foreign import signInWithRedirect :: ∀eff . AuthProvider → Auth → Eff (firebase :: FIREBASE | eff) Unit
+signInWithRedirect :: ∀eff . AuthProvider -> Auth -> Aff (firebase :: FIREBASE | eff) Unit
+signInWithRedirect provider auth = makeAff (signInWithRedirectEff provider auth)
 
-foreign import signInWithPopup :: ∀eff . AuthProvider → Auth → (Error -> Eff (firebase :: FIREBASE | eff) Unit) -> (UserCredential -> Eff (firebase :: FIREBASE | eff) Unit) -> Eff (firebase :: FIREBASE | eff) Unit
+foreign import signInWithRedirectEff :: ∀eff . AuthProvider 
+    -> Auth
+    -> (Error -> Eff (firebase :: FIREBASE | eff) Unit) 
+    -> (Unit -> Eff (firebase :: FIREBASE | eff) Unit) 
+    -> Eff (firebase :: FIREBASE | eff) Unit
+
+foreign import signInWithPopup :: ∀eff . AuthProvider 
+    -> Auth 
+    -> (Error -> Eff (firebase :: FIREBASE | eff) Unit) 
+    -> (UserCredential -> Eff (firebase :: FIREBASE | eff) Unit) 
+    -> Eff (firebase :: FIREBASE | eff) Unit
 
 foreign import getRedirectResult :: ∀eff . Auth → (Error → Eff (firebase :: FIREBASE | eff) Unit) → (RedirectResult → Eff (firebase :: FIREBASE | eff) Unit) → Eff (firebase :: FIREBASE | eff) Unit
 
