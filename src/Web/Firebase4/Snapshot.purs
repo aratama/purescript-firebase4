@@ -1,5 +1,5 @@
-module Web.Firebase4 (
-    initializeApp, database, auth
+module Web.Firebase4.Snapshot (
+    val, exists, forEach, key, numChildren
 ) where
 
 import Control.Monad.Eff (Eff, kind Effect)
@@ -15,13 +15,18 @@ import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 
 import Web.Firebase4.Type (Profile(..), FIREBASE, Firebase, FirebaseError, Database, Reference, Snapshot, Auth, User, AuthProvider, UserCredential, EventType(..), RedirectResult, showEventType)
 
--- firebase
 
-initializeApp :: ∀eff . Profile → Maybe String -> Eff (firebase :: FIREBASE | eff) Firebase
-initializeApp config name = _initializeApp config (toNullable name)
 
-foreign import _initializeApp :: ∀eff . Profile → Nullable String -> Eff (firebase :: FIREBASE | eff) Firebase
+-- datasnapshot
+foreign import val :: Snapshot → Foreign
 
-foreign import database :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Database
+foreign import exists :: Snapshot → Boolean
 
-foreign import auth :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Auth
+foreign import forEach :: forall eff. Snapshot -> (Snapshot -> Eff (firebase :: FIREBASE | eff) Unit) -> Eff (firebase :: FIREBASE | eff) Unit
+
+foreign import key :: Snapshot → String
+
+foreign import numChildren :: Snapshot -> Int
+
+
+

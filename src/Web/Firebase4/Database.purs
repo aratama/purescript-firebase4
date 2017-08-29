@@ -1,5 +1,5 @@
-module Web.Firebase4 (
-    initializeApp, database, auth
+module Web.Firebase4.Database (
+    ref
 ) where
 
 import Control.Monad.Eff (Eff, kind Effect)
@@ -15,13 +15,7 @@ import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 
 import Web.Firebase4.Type (Profile(..), FIREBASE, Firebase, FirebaseError, Database, Reference, Snapshot, Auth, User, AuthProvider, UserCredential, EventType(..), RedirectResult, showEventType)
 
--- firebase
+foreign import ref :: ∀eff . String → Database → Eff (firebase :: FIREBASE | eff) Reference
 
-initializeApp :: ∀eff . Profile → Maybe String -> Eff (firebase :: FIREBASE | eff) Firebase
-initializeApp config name = _initializeApp config (toNullable name)
 
-foreign import _initializeApp :: ∀eff . Profile → Nullable String -> Eff (firebase :: FIREBASE | eff) Firebase
 
-foreign import database :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Database
-
-foreign import auth :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Auth

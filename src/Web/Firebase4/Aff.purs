@@ -6,6 +6,10 @@ import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Exception (Error)
 import Prelude (Unit)
 
+import Web.Firebase4.Type (AuthProvider, Snapshot, Reference, FIREBASE, Auth, UserCredential)
+
+import Web.Firebase4.Auth (signInWithPopup)
+
 foreign import _onceAff :: ∀eff. (Error → Eff (firebase :: FIREBASE | eff) Unit) → (Snapshot → Eff (firebase :: FIREBASE | eff) Unit) → Reference → Eff (firebase :: FIREBASE | eff) Unit
 
 onceAff :: ∀eff. Reference → Aff (firebase :: FIREBASE | eff) Snapshot
