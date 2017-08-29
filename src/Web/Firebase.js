@@ -1,7 +1,5 @@
 "use strict";
 
-/* global firebase */
-
 exports._initializeApp = function(config){
     return function(name){
         return function(){
@@ -183,20 +181,28 @@ exports.delete = function(user){
     };
 };
 
-exports.newTwitterAuthProvider = function(){
-    return new firebase.auth.TwitterAuthProvider();
+exports.newTwitterAuthProvider = function(auth){
+    return function(){
+        return new auth.TwitterAuthProvider();
+    };
 };
 
-exports.newFacebookAuthProvider = function(){
-    return new firebase.auth.FacebookAuthProvider();
+exports.newFacebookAuthProvider = function(auth){
+    return function(){
+        return new auth.FacebookAuthProvider();
+    };
 };
 
-exports.newGithubAuthProvider = function(){
-    return new firebase.auth.GithubAuthProvider();
+exports.newGithubAuthProvider = function(auth){
+    return function(){
+        return new auth.GithubAuthProvider();
+    };
 };
 
-exports.newGoogleAuthProvider = function(){
-    return new firebase.auth.GoogleAuthProvider();
+exports.newGoogleAuthProvider = function(auth){
+    return function(){
+        return new auth.GoogleAuthProvider();
+    };
 };
 
 exports.signInWithRedirect = function(provider){

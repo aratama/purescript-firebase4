@@ -122,13 +122,13 @@ foreign import _onAuthStateChanged :: ∀eff . (Nullable User → Eff (firebase 
 onAuthStateChanged :: ∀eff . (Maybe User → Eff (firebase :: FIREBASE | eff) Unit) → Auth → Eff (firebase :: FIREBASE | eff) Unit
 onAuthStateChanged callback = _onAuthStateChanged (callback <<< toMaybe)
 
-foreign import newTwitterAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
+foreign import newTwitterAuthProvider :: ∀eff . Auth -> Eff (firebase :: FIREBASE | eff) AuthProvider
 
-foreign import newFacebookAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
+foreign import newFacebookAuthProvider :: ∀eff . Auth -> Eff (firebase :: FIREBASE | eff) AuthProvider
 
-foreign import newGithubAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
+foreign import newGithubAuthProvider :: ∀eff . Auth -> Eff (firebase :: FIREBASE | eff) AuthProvider
 
-foreign import newGoogleAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
+foreign import newGoogleAuthProvider :: ∀eff . Auth -> Eff (firebase :: FIREBASE | eff) AuthProvider
 
 foreign import signInWithRedirect :: ∀eff . AuthProvider → Auth → Eff (firebase :: FIREBASE | eff) Unit
 
