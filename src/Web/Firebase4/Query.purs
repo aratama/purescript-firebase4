@@ -25,3 +25,5 @@ foreign import startAtWithKey :: forall eff. Foreign -> String -> Query -> Query
 foreign import endAtWithKey :: forall eff. Foreign -> String -> Query -> Query
 
 foreign import equalToWithKey :: forall eff. Foreign -> String -> Query -> Query
+
+

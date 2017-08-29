@@ -68,7 +68,3 @@ exports.onDisconnect = function(reference){
     };
 };
 
-
-exports.query = function(ref){
-    return ref;
-};

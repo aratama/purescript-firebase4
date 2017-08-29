@@ -1,5 +1,5 @@
 module Web.Firebase4.Reference (
-    set, remove, on, once, off, child, onDisconnect, query
+    set, remove, on, once, off, child, onDisconnect
 ) where
 
 import Control.Monad.Eff (Eff, kind Effect)
@@ -54,4 +54,3 @@ foreign import child :: ∀eff . String -> Reference -> Eff (firebase :: FIREBAS
 
 foreign import onDisconnect :: ∀eff . Reference -> Eff (firebase :: FIREBASE | eff) Reference
 
-foreign import query :: Reference -> Query 

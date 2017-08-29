@@ -42,10 +42,4 @@ child :: forall eff. String -> Reference -> Eff (firebase :: FIREBASE | eff) Ref
 onDisconnect :: forall eff. Reference -> Eff (firebase :: FIREBASE | eff) Reference
 ```
 
-#### `query`
-
-``` purescript
-query :: Reference -> Query
-```
-
 
