@@ -1,5 +1,7 @@
 "use strict";
 
+/* global firebase */
+
 exports.signInAnonymously = function(auth){
     return function(){
         auth.signInAnonymously();
@@ -34,28 +36,20 @@ exports._onAuthStateChanged = function(callback){
 
 
 
-exports.newTwitterAuthProvider = function(auth){
-    return function(){
-        return new auth.TwitterAuthProvider();
-    };
+exports.newTwitterAuthProvider = function(){
+    return new firebase.auth.TwitterAuthProvider();
 };
 
-exports.newFacebookAuthProvider = function(auth){
-    return function(){
-        return new auth.FacebookAuthProvider();
-    };
+exports.newFacebookAuthProvider = function(){
+    return new firebase.auth.FacebookAuthProvider();
 };
 
-exports.newGithubAuthProvider = function(auth){
-    return function(){
-        return new auth.GithubAuthProvider();
-    };
+exports.newGithubAuthProvider = function(){
+    return new firebase.auth.GithubAuthProvider();
 };
 
-exports.newGoogleAuthProvider = function(auth){
-    return function(){
-        return new auth.GoogleAuthProvider();
-    };
+exports.newGoogleAuthProvider = function(){
+    return new firebase.auth.GoogleAuthProvider();
 };
 
 exports.signInWithRedirect = function(provider){

@@ -1,17 +1,17 @@
 ## Module Web.Firebase4.Type
 
-#### `Profile`
+#### `Options`
 
 ``` purescript
-newtype Profile
-  = Profile { apiKey :: String, authDomain :: String, databaseURL :: String, storageBucket :: String, messagingSenderId :: String }
+newtype Options
+  = Options { apiKey :: String, authDomain :: String, databaseURL :: String, storageBucket :: String, messagingSenderId :: String }
 ```
 
 ##### Instances
 ``` purescript
-Generic Profile _
-Decode Profile
-Encode Profile
+Generic Options _
+Decode Options
+Encode Options
 ```
 
 #### `FIREBASE`

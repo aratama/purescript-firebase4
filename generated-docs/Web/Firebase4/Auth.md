@@ -33,25 +33,25 @@ onAuthStateChanged :: forall eff. (Maybe User -> Eff (firebase :: FIREBASE | eff
 #### `newTwitterAuthProvider`
 
 ``` purescript
-newTwitterAuthProvider :: forall eff. Auth -> Eff (firebase :: FIREBASE | eff) AuthProvider
+newTwitterAuthProvider :: forall eff. Eff (firebase :: FIREBASE | eff) AuthProvider
 ```
 
 #### `newFacebookAuthProvider`
 
 ``` purescript
-newFacebookAuthProvider :: forall eff. Auth -> Eff (firebase :: FIREBASE | eff) AuthProvider
+newFacebookAuthProvider :: forall eff. Eff (firebase :: FIREBASE | eff) AuthProvider
 ```
 
 #### `newGithubAuthProvider`
 
 ``` purescript
-newGithubAuthProvider :: forall eff. Auth -> Eff (firebase :: FIREBASE | eff) AuthProvider
+newGithubAuthProvider :: forall eff. Eff (firebase :: FIREBASE | eff) AuthProvider
 ```
 
 #### `newGoogleAuthProvider`
 
 ``` purescript
-newGoogleAuthProvider :: forall eff. Auth -> Eff (firebase :: FIREBASE | eff) AuthProvider
+newGoogleAuthProvider :: forall eff. Eff (firebase :: FIREBASE | eff) AuthProvider
 ```
 
 #### `signInWithRedirect`

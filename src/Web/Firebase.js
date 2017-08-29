@@ -16,13 +16,6 @@ exports.database = function(firebase){
     };
 };
 
-
-
-
-
-
-
-
 exports.auth = function(firebase){
     return function(){
         return firebase.auth();

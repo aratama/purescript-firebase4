@@ -12,11 +12,8 @@ import Data.Maybe (Maybe)
 import Prelude (Unit, (<<<))
 import Data.Generic.Rep (class Generic)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
+import Web.Firebase4.Type (FIREBASE, Reference, Snapshot, showEventType, EventType)
 
-import Web.Firebase4.Type (Profile(..), FIREBASE, Firebase, FirebaseError, Database, Reference, Snapshot, Auth, User, AuthProvider, UserCredential, EventType(..), RedirectResult, showEventType)
-
-
--- reference
 foreign import set :: ∀eff . Foreign → Reference → Eff (firebase :: FIREBASE | eff) Unit
 
 foreign import remove :: ∀eff . Reference → Eff (firebase :: FIREBASE | eff) Unit

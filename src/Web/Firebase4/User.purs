@@ -2,23 +2,12 @@ module Web.Firebase4.User (
     uid, displayName, photoURL, isAnonymous, delete
 ) where
 
-import Control.Monad.Eff (Eff, kind Effect)
-import Control.Monad.Eff.Exception (Error)
-import Control.Monad.Aff (Aff, makeAff)
-import Data.Foreign (Foreign)
-import Data.Foreign.Class (class Encode, class Decode)
-import Data.Nullable (Nullable, toMaybe, toNullable)
+import Control.Monad.Eff (Eff)
+import Data.Nullable (Nullable, toMaybe)
 import Data.Maybe (Maybe)
-import Prelude (Unit, (<<<))
-import Data.Generic.Rep (class Generic)
-import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
+import Prelude (Unit)
 
-import Web.Firebase4.Type (Profile(..), FIREBASE, Firebase, FirebaseError, Database, Reference, Snapshot, Auth, User, AuthProvider, UserCredential, EventType(..), RedirectResult, showEventType)
-
-
-
-
--- User
+import Web.Firebase4.Type (FIREBASE, Firebase, User)
 
 foreign import uid :: User → String
 

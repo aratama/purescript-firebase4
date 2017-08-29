@@ -3,7 +3,7 @@
 #### `initializeApp`
 
 ``` purescript
-initializeApp :: forall eff. Profile -> Maybe String -> Eff (firebase :: FIREBASE | eff) Firebase
+initializeApp :: forall eff. Options -> Maybe String -> Eff (firebase :: FIREBASE | eff) Firebase
 ```
 
 #### `database`
