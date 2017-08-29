@@ -54,10 +54,14 @@ exports.newGoogleAuthProvider = function(){
 
 exports.signInWithRedirectEff = function(provider){
     return function(auth){
-        return function(/*reject*/){
-            return function(/*resolve*/){
+        return function(reject){
+            return function(resolve){
                 return function(){
-                    auth.signInWithRedirect(provider);
+                    auth.signInWithRedirect(provider).then(function(){
+                        resolve({})();
+                    }).catch(function(err){
+                        reject(err)();
+                    });
                 };
             };
         };
