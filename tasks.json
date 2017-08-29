@@ -1,0 +1,21 @@
+{
+    "version": "0.1.0",
+    "command": "npm",
+    "windows": {
+      "command": "npm.cmd"
+    },
+    "isShellCommand": true,
+    "suppressTaskName": true,
+    "tasks": [
+      {
+        "taskName": "build",
+        // Make this the default build command.
+        "isBuildCommand": true,
+        "args": ["run", "build"],
+        // Show the output window only if unrecognized errors occur.
+        "showOutput": "silent"
+      }
+    ]
+  }
+
+  

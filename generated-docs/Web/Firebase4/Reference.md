@@ -12,12 +12,6 @@ set :: forall eff. Foreign -> Reference -> Eff (firebase :: FIREBASE | eff) Unit
 remove :: forall eff. Reference -> Eff (firebase :: FIREBASE | eff) Unit
 ```
 
-#### `onValue`
-
-``` purescript
-onValue :: forall eff1 eff2. (Snapshot -> Eff (firebase :: FIREBASE | eff1) Unit) -> Reference -> Eff (firebase :: FIREBASE | eff2) Unit
-```
-
 #### `on`
 
 ``` purescript
@@ -27,7 +21,7 @@ on :: forall eff. EventType -> (Error -> Eff (firebase :: FIREBASE | eff) Unit) 
 #### `once`
 
 ``` purescript
-once :: forall eff. (Snapshot -> Eff (firebase :: FIREBASE | eff) Unit) -> Reference -> Eff (firebase :: FIREBASE | eff) Unit
+once :: forall eff. EventType -> (Error -> Eff (firebase :: FIREBASE | eff) Unit) -> (Snapshot -> Eff (firebase :: FIREBASE | eff) Unit) -> Reference -> Eff (firebase :: FIREBASE | eff) Unit
 ```
 
 #### `off`
@@ -48,10 +42,10 @@ child :: forall eff. String -> Reference -> Eff (firebase :: FIREBASE | eff) Ref
 onDisconnect :: forall eff. Reference -> Eff (firebase :: FIREBASE | eff) Reference
 ```
 
-#### `toQuery`
+#### `query`
 
 ``` purescript
-toQuery :: Reference -> Query
+query :: Reference -> Query
 ```
 
 

@@ -24,16 +24,6 @@ exports.remove = function(reference){
     };
 };
 
-exports.onValue = function(callback){
-    return function(reference){
-        return function(){
-            reference.on("value", function(snapshot){
-                callback(snapshot)();
-            });
-        };
-    };
-};
-
 exports._on = function(eventType){
     return function(reject){
         return function(callback){
@@ -41,8 +31,8 @@ exports._on = function(eventType){
                 return function(){
                     reference.on(eventType, function(snapshot){
                         callback(snapshot)();
-                    }, function(e){
-                        reject(e)();
+                    }, function(err){
+                        reject(err)();
                     });
                 };
             };
@@ -50,12 +40,18 @@ exports._on = function(eventType){
     };
 };
 
-exports.once = function(callback){
-    return function(reference){
-        return function(){
-            reference.once("value", function(snapshot){
-                callback(snapshot)();
-            });
+exports._once = function(eventType){
+    return function(reject){
+        return function(callback){
+            return function(reference){
+                return function(){
+                    reference.once(eventType, function(snapshot){
+                        callback(snapshot)();
+                    }, function(err){
+                        reject(err)();
+                    });
+                };
+            };
         };
     };
 };
@@ -73,6 +69,6 @@ exports.onDisconnect = function(reference){
 };
 
 
-exports.toQuery = function(ref){
+exports.query = function(ref){
     return ref;
 };

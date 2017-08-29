@@ -71,7 +71,7 @@ data AuthProvider :: Type
 #### `Query`
 
 ``` purescript
-data Query :: Type
+type Query = Reference
 ```
 
 #### `UserCredential`

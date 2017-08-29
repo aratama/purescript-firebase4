@@ -43,7 +43,8 @@ foreign import data User :: Type
 
 foreign import data AuthProvider :: Type
 
-foreign import data Query :: Type
+-- foreign import data Query :: Type
+type Query = Reference
 
 type UserCredential = {
     user :: Maybe User, 
