@@ -18,12 +18,6 @@ signInWithEmailAndPassword :: forall eff. String -> String -> Auth -> Eff (fireb
 signOut :: forall eff. Auth -> Eff (firebase :: FIREBASE | eff) Unit
 ```
 
-#### `_onAuthStateChanged`
-
-``` purescript
-_onAuthStateChanged :: forall eff. (Nullable User -> Eff (firebase :: FIREBASE | eff) Unit) -> Auth -> Eff (firebase :: FIREBASE | eff) Unit
-```
-
 #### `onAuthStateChanged`
 
 ``` purescript

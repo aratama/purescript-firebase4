@@ -1,4 +1,8 @@
-module Web.Firebase4.Auth where 
+module Web.Firebase4.Auth (
+    signInAnonymously, signInWithEmailAndPassword, signInWithRedirect, signInWithPopup, signOut,
+    onAuthStateChanged, getRedirectResult, getRedirectResultAff,
+    newTwitterAuthProvider, newFacebookAuthProvider, newGithubAuthProvider, newGoogleAuthProvider
+) where 
 
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Exception (Error)
