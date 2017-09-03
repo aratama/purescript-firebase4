@@ -41,7 +41,7 @@ foreign import data Snapshot :: Type
 
 foreign import data Auth :: Type
 
-foreign import data User :: Type
+type User = UserInfo
 
 foreign import data UserInfo :: Type
 

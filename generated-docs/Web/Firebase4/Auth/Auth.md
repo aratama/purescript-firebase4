@@ -24,30 +24,6 @@ signOut :: forall eff. Auth -> Eff (firebase :: FIREBASE | eff) Unit
 onAuthStateChanged :: forall eff. (Maybe User -> Eff (firebase :: FIREBASE | eff) Unit) -> Auth -> Eff (firebase :: FIREBASE | eff) Unit
 ```
 
-#### `newTwitterAuthProvider`
-
-``` purescript
-newTwitterAuthProvider :: forall eff. Eff (firebase :: FIREBASE | eff) AuthProvider
-```
-
-#### `newFacebookAuthProvider`
-
-``` purescript
-newFacebookAuthProvider :: forall eff. Eff (firebase :: FIREBASE | eff) AuthProvider
-```
-
-#### `newGithubAuthProvider`
-
-``` purescript
-newGithubAuthProvider :: forall eff. Eff (firebase :: FIREBASE | eff) AuthProvider
-```
-
-#### `newGoogleAuthProvider`
-
-``` purescript
-newGoogleAuthProvider :: forall eff. Eff (firebase :: FIREBASE | eff) AuthProvider
-```
-
 #### `signInWithRedirect`
 
 ``` purescript

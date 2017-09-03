@@ -1,17 +1,5 @@
 ## Module Web.Firebase4.Auth.User
 
-#### `displayName`
-
-``` purescript
-displayName :: User -> Maybe String
-```
-
-#### `email`
-
-``` purescript
-email :: User -> Nullable String
-```
-
 #### `emailVerified`
 
 ``` purescript
@@ -24,28 +12,10 @@ emailVerified :: User -> Boolean
 isAnonymous :: User -> Boolean
 ```
 
-#### `phoneNumber`
-
-``` purescript
-phoneNumber :: User -> Maybe String
-```
-
-#### `photoURL`
-
-``` purescript
-photoURL :: User -> Maybe String
-```
-
 #### `providerData`
 
 ``` purescript
 providerData :: User -> Array UserInfo
-```
-
-#### `uid`
-
-``` purescript
-uid :: User -> String
 ```
 
 #### `delete`

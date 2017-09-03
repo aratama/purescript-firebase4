@@ -1,7 +1,6 @@
 module Web.Firebase4.Auth.Auth (
     signInAnonymously, signInWithEmailAndPassword, signInWithRedirect, signInWithPopup, signOut,
-    onAuthStateChanged, getRedirectResult,
-    newTwitterAuthProvider, newFacebookAuthProvider, newGithubAuthProvider, newGoogleAuthProvider
+    onAuthStateChanged, getRedirectResult
 ) where 
 
 import Control.Monad.Except (runExcept)
@@ -25,14 +24,6 @@ foreign import _onAuthStateChanged :: ∀eff . (Nullable User → Eff (firebase 
 
 onAuthStateChanged :: ∀eff . (Maybe User → Eff (firebase :: FIREBASE | eff) Unit) → Auth → Eff (firebase :: FIREBASE | eff) Unit
 onAuthStateChanged callback = _onAuthStateChanged (callback <<< toMaybe)
-
-foreign import newTwitterAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
-
-foreign import newFacebookAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
-
-foreign import newGithubAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
-
-foreign import newGoogleAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
 
 signInWithRedirect :: ∀eff . AuthProvider -> Auth -> Aff (firebase :: FIREBASE | eff) Unit
 signInWithRedirect provider auth = makeAff (signInWithRedirectEff provider auth)

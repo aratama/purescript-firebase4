@@ -1,7 +1,5 @@
 module Web.Firebase4.Auth.User (    
-    displayName, email, emailVerified, isAnonymous, phoneNumber,
-    photoURL, providerData, 
-    uid,
+    emailVerified, isAnonymous, providerData, 
     delete, getIdToken, linkAndRetrieveDataWithCredential
 ) where
 
@@ -15,34 +13,13 @@ import Web.Firebase4.Type (FIREBASE, Firebase, User, UserInfo, AuthCredential, U
 
 -- Properties
 
-foreign import _displayName :: User -> Nullable String
-
-displayName :: User -> Maybe String
-displayName user = toMaybe (_displayName user)
-
-foreign import email :: User -> Nullable String 
-
 foreign import emailVerified :: User -> Boolean
 
 foreign import isAnonymous :: User -> Boolean
 
-foreign import phoneNumberNullable :: User -> Nullable String
-
-phoneNumber :: User -> Maybe String
-phoneNumber user = toMaybe (phoneNumberNullable user)
-
-foreign import _photoURL :: User -> Nullable String
-
-photoURL :: User -> Maybe String
-photoURL user = toMaybe (_photoURL user)
-
 foreign import providerData :: User -> Array UserInfo
 
-foreign import providerId :: User -> String
-
 foreign import refreshToken :: User -> String
-
-foreign import uid :: User -> String
 
 -- methods
 

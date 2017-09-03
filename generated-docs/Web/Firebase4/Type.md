@@ -59,7 +59,7 @@ data Auth :: Type
 #### `User`
 
 ``` purescript
-data User :: Type
+type User = UserInfo
 ```
 
 #### `UserInfo`

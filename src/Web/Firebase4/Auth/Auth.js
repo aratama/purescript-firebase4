@@ -34,20 +34,6 @@ exports._onAuthStateChanged = function(callback){
     };
 };
 
-
-
-exports.newTwitterAuthProvider = function(){
-    return new firebase.auth.TwitterAuthProvider();
-};
-
-exports.newFacebookAuthProvider = function(){
-    return new firebase.auth.FacebookAuthProvider();
-};
-
-exports.newGithubAuthProvider = function(){
-    return new firebase.auth.GithubAuthProvider();
-};
-
 exports.newGoogleAuthProvider = function(){
     return new firebase.auth.GoogleAuthProvider();
 };
