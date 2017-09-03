@@ -1,7 +1,8 @@
-module Web.Firebase4.User (    
-    delete, displayName, email, emailVerified, isAnonymous, phoneNumber,
-    photoURL, providerData,
-    uid
+module Web.Firebase4.Auth.User (    
+    displayName, email, emailVerified, isAnonymous, phoneNumber,
+    photoURL, providerData, 
+    uid,
+    delete, getIdToken, linkAndRetrieveDataWithCredential
 ) where
 
 import Control.Monad.Aff (Aff, makeAff)
@@ -10,7 +11,7 @@ import Control.Monad.Eff.Exception (Error)
 import Data.Nullable (Nullable, toMaybe)
 import Data.Maybe (Maybe)
 import Prelude (Unit)
-import Web.Firebase4.Type (FIREBASE, Firebase, User, UserInfo)
+import Web.Firebase4.Type (FIREBASE, Firebase, User, UserInfo, AuthCredential, UserCredential)
 
 -- Properties
 
@@ -64,4 +65,18 @@ foreign import getIdTokenEff :: forall eff
 getIdToken :: forall eff . Boolean -> User -> Aff (firebase :: FIREBASE | eff) String
 getIdToken forceRefresh user = makeAff (getIdTokenEff forceRefresh user) 
 
+
+foreign import linkAndRetrieveDataWithCredentialEff :: forall eff 
+    . AuthCredential
+    -> User 
+    -> (Error -> Eff (firebase :: FIREBASE | eff) Unit) 
+    -> (UserCredential -> Eff (firebase :: FIREBASE | eff) Unit) 
+    -> Eff (firebase :: FIREBASE | eff) Unit
+
+
+linkAndRetrieveDataWithCredential :: forall eff 
+    . AuthCredential
+    -> User 
+    -> Aff (firebase :: FIREBASE | eff) UserCredential
+linkAndRetrieveDataWithCredential authCredential user = makeAff (linkAndRetrieveDataWithCredentialEff authCredential user)
 

@@ -1,4 +1,4 @@
-## Module Web.Firebase4.User
+## Module Web.Firebase4.Auth.User
 
 #### `displayName`
 

@@ -1,4 +1,4 @@
-module Web.Firebase4.Snapshot (
+module Web.Firebase4.Database.Snapshot (
     val, exists, forEach, key, numChildren
 ) where
 

@@ -1,4 +1,4 @@
-module Web.Firebase4.Reference (
+module Web.Firebase4.Database.Reference (
     set, remove, on, once, off, child, onDisconnect
 ) where
 

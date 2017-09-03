@@ -1,4 +1,4 @@
-module Web.Firebase4.Database (
+module Web.Firebase4.Database.Database (
     ref
 ) where
 

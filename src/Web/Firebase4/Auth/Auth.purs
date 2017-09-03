@@ -1,4 +1,4 @@
-module Web.Firebase4.Auth (
+module Web.Firebase4.Auth.Auth (
     signInAnonymously, signInWithEmailAndPassword, signInWithRedirect, signInWithPopup, signOut,
     onAuthStateChanged, getRedirectResult,
     newTwitterAuthProvider, newFacebookAuthProvider, newGithubAuthProvider, newGoogleAuthProvider
@@ -12,7 +12,7 @@ import Data.Nullable (Nullable, toMaybe, toNullable)
 import Data.Maybe (Maybe(..))
 import Data.Either (Either(..))
 import Prelude (Unit, (<<<), (>>=), (||))
-import Web.Firebase4.Type (FIREBASE, Auth, User, AuthProvider, UserCredential, RedirectResult, AuthCredential)
+import Web.Firebase4.Type (FIREBASE, Auth, User, AuthProvider, UserCredential, RedirectResult, AuthCredential, Snapshot, Reference)
 import Data.Foreign (Foreign, readNullOrUndefined, readString, unsafeFromForeign, isNull, isUndefined)
 
 foreign import signInAnonymously :: ∀eff . Auth → Eff (firebase :: FIREBASE | eff) Unit
@@ -71,3 +71,14 @@ type UserCredentialRaw = {
     operationType :: Foreign,
     additionalUserInfo :: Foreign
 }
+
+
+
+
+foreign import _onceAff :: ∀eff. (Error → Eff (firebase :: FIREBASE | eff) Unit) → (Snapshot → Eff (firebase :: FIREBASE | eff) Unit) → Reference → Eff (firebase :: FIREBASE | eff) Unit
+
+onceAff :: ∀eff. Reference → Aff (firebase :: FIREBASE | eff) Snapshot
+onceAff reference = makeAff \reject resolve → _onceAff reject resolve reference
+
+signInWithPopupAff :: ∀eff . AuthProvider → Auth → Aff (firebase :: FIREBASE | eff) UserCredential
+signInWithPopupAff provider auth = makeAff (signInWithPopup provider auth)

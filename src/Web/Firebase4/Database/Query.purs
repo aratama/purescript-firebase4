@@ -1,4 +1,4 @@
-module Web.Firebase4.Query (
+module Web.Firebase4.Database.Query (
     orderByKey, limitToFirst, limitToLast, 
     startAt, endAt, equalToWithKey, 
     startAtWithKey, endAtWithKey, equalToWithKey
