@@ -12,17 +12,7 @@ exports._initializeApp = function(config){
     };
 };
 
-exports.database = function(firebase){
-    return function(){
-        return firebase.database();
-    };
-};
 
-exports.auth = function(firebase){
-    return function(){
-        return firebase.auth();
-    };
-};
 
 exports.sDK_VERSION = firebase.SDK_VERSION;
 

@@ -6,16 +6,16 @@
 initializeApp :: forall eff. Options -> Maybe String -> Eff (firebase :: FIREBASE | eff) Firebase
 ```
 
-#### `database`
+#### `sDK_VERSION`
 
 ``` purescript
-database :: forall eff. Firebase -> Eff (firebase :: FIREBASE | eff) Database
+sDK_VERSION :: String
 ```
 
-#### `auth`
+#### `apps`
 
 ``` purescript
-auth :: forall eff. Firebase -> Eff (firebase :: FIREBASE | eff) Auth
+apps :: forall eff. Eff (firebase :: FIREBASE | eff) (Array Firebase)
 ```
 
 

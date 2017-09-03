@@ -1,5 +1,5 @@
 module Web.Firebase4 (
-    initializeApp, database, auth
+    initializeApp, sDK_VERSION, apps
 ) where
 
 import Control.Monad.Eff (Eff)
@@ -11,10 +11,6 @@ initializeApp :: ∀eff . Options → Maybe String -> Eff (firebase :: FIREBASE 
 initializeApp config name = _initializeApp config (toNullable name)
 
 foreign import _initializeApp :: ∀eff . Options → Nullable String -> Eff (firebase :: FIREBASE | eff) Firebase
-
-foreign import database :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Database
-
-foreign import auth :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Auth
 
 foreign import sDK_VERSION :: String
 
