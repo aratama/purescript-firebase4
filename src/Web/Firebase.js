@@ -1,5 +1,7 @@
 "use strict";
 
+/* global firebase */
+
 exports._initializeApp = function(config){
     return function(name){
         return function(){
@@ -22,9 +24,11 @@ exports.auth = function(firebase){
     };
 };
 
+exports.sDK_VERSION = firebase.SDK_VERSION;
 
-
-
+exports.apps = function(){
+    return firebase.apps;
+};
 
 
 

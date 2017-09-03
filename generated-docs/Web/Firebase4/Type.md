@@ -62,6 +62,12 @@ data Auth :: Type
 data User :: Type
 ```
 
+#### `UserInfo`
+
+``` purescript
+data UserInfo :: Type
+```
+
 #### `AuthProvider`
 
 ``` purescript

@@ -1,5 +1,7 @@
 module Web.Firebase4.Type (
-    Options(..), FIREBASE, Firebase, FirebaseError, Database, Reference, Snapshot, Auth, User, Query, AuthProvider, UserCredential, EventType(..),
+    Options(..), FIREBASE, Firebase, FirebaseError, Database, 
+    Reference, Snapshot, Auth, User, UserInfo, 
+    Query, AuthProvider, UserCredential, EventType(..),
     RedirectResult, showEventType, AuthCredential, AdditionalUserInfo
 ) where
 
@@ -40,6 +42,8 @@ foreign import data Snapshot :: Type
 foreign import data Auth :: Type
 
 foreign import data User :: Type
+
+foreign import data UserInfo :: Type
 
 foreign import data AuthProvider :: Type
 

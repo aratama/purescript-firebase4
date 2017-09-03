@@ -15,3 +15,7 @@ foreign import _initializeApp :: ∀eff . Options → Nullable String -> Eff (fi
 foreign import database :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Database
 
 foreign import auth :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Auth
+
+foreign import sDK_VERSION :: String
+
+foreign import apps :: ∀eff . Eff (firebase :: FIREBASE | eff) (Array Firebase)
