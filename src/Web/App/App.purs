@@ -1,13 +1,24 @@
-module Web.Firebase4.App.App where 
+module Web.Firebase4.App.App (name, options, auth, database, delete) where 
 
-
+import Control.Monad.Aff (Aff, makeAff)
 import Control.Monad.Eff (Eff)
+import Control.Monad.Eff.Exception (Error)
 import Web.Firebase4.Type (FIREBASE, Firebase, Auth, Database, Options)
+import Data.Unit (Unit)
 
 foreign import name :: Firebase -> String 
 
 foreign import options :: Firebase -> Options
 
-foreign import database :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Database
+foreign import auth :: forall eff . Firebase -> Eff (firebase :: FIREBASE | eff) Auth
 
-foreign import auth :: ∀eff . Firebase → Eff (firebase :: FIREBASE | eff) Auth
+foreign import database :: forall eff . Firebase -> Eff (firebase :: FIREBASE | eff) Database
+
+foreign import deleteEff :: forall eff 
+    . Firebase 
+    -> (Error -> Eff (firebase :: FIREBASE | eff) Unit)
+    -> (Unit -> Eff (firebase :: FIREBASE | eff) Unit)
+    -> Eff (firebase :: FIREBASE | eff) Unit
+
+delete :: forall eff. Firebase -> Aff (firebase :: FIREBASE | eff) Unit 
+delete app = makeAff (deleteEff app)

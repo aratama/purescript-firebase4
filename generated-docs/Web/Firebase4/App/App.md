@@ -12,16 +12,22 @@ name :: Firebase -> String
 options :: Firebase -> Options
 ```
 
+#### `auth`
+
+``` purescript
+auth :: forall eff. Firebase -> Eff (firebase :: FIREBASE | eff) Auth
+```
+
 #### `database`
 
 ``` purescript
 database :: forall eff. Firebase -> Eff (firebase :: FIREBASE | eff) Database
 ```
 
-#### `auth`
+#### `delete`
 
 ``` purescript
-auth :: forall eff. Firebase -> Eff (firebase :: FIREBASE | eff) Auth
+delete :: forall eff. Firebase -> Aff (firebase :: FIREBASE | eff) Unit
 ```
 
 

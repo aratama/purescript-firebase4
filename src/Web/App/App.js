@@ -19,3 +19,20 @@ exports.auth = function(firebase){
         return firebase.auth();
     };
 };
+
+exports.deleteEff = function(app){
+    return function(reject){
+        return function(resolve){
+            return function(){
+                app.delete().then(
+                    function(){
+                        resolve({})();
+                    },
+                    function(err){
+                        reject(err)();
+                    }
+                );
+            };
+        };
+    };
+};
