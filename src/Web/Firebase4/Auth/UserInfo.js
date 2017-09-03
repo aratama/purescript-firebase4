@@ -2,11 +2,11 @@
 
 // Properties
 
-exports._displayName = function(user){
+exports.displayNameNullable = function(user){
     return user.displayName;
 };
 
-exports.email = function(user){
+exports.emailNullable = function(user){
     return user.email;
 };
 
@@ -14,7 +14,7 @@ exports.phoneNumberNullable = function(user){
     return user.phoneNumber;
 };
 
-exports._photoURL = function(user){
+exports.photoURLNullable = function(user){
     return user.photoURL;
 };
 

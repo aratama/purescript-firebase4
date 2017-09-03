@@ -13,22 +13,25 @@ import Web.Firebase4.Type (FIREBASE, Firebase, User, UserInfo, AuthCredential, U
 
 -- Properties
 
-foreign import _displayName :: User -> Nullable String
+foreign import displayNameNullable :: User -> Nullable String
 
 displayName :: User -> Maybe String
-displayName user = toMaybe (_displayName user)
+displayName user = toMaybe (displayNameNullable user)
 
-foreign import email :: User -> Nullable String 
+foreign import emailNullable :: User -> Nullable String 
+
+email :: User -> Maybe String 
+email user = toMaybe (emailNullable user)
 
 foreign import phoneNumberNullable :: User -> Nullable String
 
 phoneNumber :: User -> Maybe String
 phoneNumber user = toMaybe (phoneNumberNullable user)
 
-foreign import _photoURL :: User -> Nullable String
+foreign import photoURLNullable :: User -> Nullable String
 
 photoURL :: User -> Maybe String
-photoURL user = toMaybe (_photoURL user)
+photoURL user = toMaybe (photoURLNullable user)
 
 foreign import providerId :: User -> String
 

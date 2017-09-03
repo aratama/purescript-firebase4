@@ -9,7 +9,7 @@ displayName :: User -> Maybe String
 #### `email`
 
 ``` purescript
-email :: User -> Nullable String
+email :: User -> Maybe String
 ```
 
 #### `phoneNumber`
