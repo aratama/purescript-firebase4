@@ -1,11 +1,5 @@
 ## Module Web.Firebase4.Messaging.Messaging
 
-#### `messaging`
-
-``` purescript
-messaging :: App -> Firebase -> Messaging
-```
-
 #### `deleteToken`
 
 ``` purescript

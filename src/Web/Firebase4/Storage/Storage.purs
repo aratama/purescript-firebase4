@@ -4,15 +4,15 @@ import Control.Monad.Eff (Eff)
 import Data.Maybe (Maybe)
 import Data.Nullable (Nullable, toNullable)
 import Prelude (Unit)
-import Web.Firebase4.Type (App, FIREBASE, Firebase)
+import Web.Firebase4.Type (FIREBASE, Firebase)
 import Web.Firebase4.Storage.Type (Storage, Reference)
 
-foreign import _storage :: Nullable App -> Firebase -> Storage
+foreign import storageNullable :: Nullable Firebase -> Storage
  
-storage :: Maybe App -> Firebase -> Storage
-storage app = _storage (toNullable app)
+storage :: Maybe Firebase -> Storage
+storage app = storageNullable (toNullable app)
 
-foreign import app :: Storage -> App
+foreign import app :: Storage -> Firebase
 
 foreign import getMaxOperationRetryTime :: forall eff. Storage -> Eff (firebase :: FIREBASE | eff) Number
 

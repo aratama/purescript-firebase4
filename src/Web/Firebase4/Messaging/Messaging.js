@@ -1,11 +1,5 @@
 "use strict";
 
-exports.messaging = function(app){
-    return function(firebase){
-        return firebase.messaging(app);
-    };
-};
-
 exports.deleteTokenEff = function(token){
     return function(messaging){
         return function(reject){

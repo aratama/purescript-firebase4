@@ -24,6 +24,12 @@ auth :: forall eff. Firebase -> Eff (firebase :: FIREBASE | eff) Auth
 database :: forall eff. Firebase -> Eff (firebase :: FIREBASE | eff) Database
 ```
 
+#### `messaging`
+
+``` purescript
+messaging :: Firebase -> Messaging
+```
+
 #### `delete`
 
 ``` purescript

@@ -32,10 +32,4 @@ data Firebase :: Type
 data FirebaseError :: Type
 ```
 
-#### `App`
-
-``` purescript
-data App :: Type
-```
-
 

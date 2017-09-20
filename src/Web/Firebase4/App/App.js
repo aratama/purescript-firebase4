@@ -20,6 +20,10 @@ exports.auth = function(firebase){
     };
 };
 
+exports.messaging = function(app){
+    return app.messaging();
+};
+
 exports.deleteEff = function(app){
     return function(reject){
         return function(resolve){

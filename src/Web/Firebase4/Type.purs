@@ -1,5 +1,5 @@
 module Web.Firebase4.Type (
-    Options(..), FIREBASE, Firebase, FirebaseError, App
+    Options(..), FIREBASE, Firebase, FirebaseError
 ) where
 
 import Control.Monad.Eff (kind Effect)
@@ -28,7 +28,5 @@ foreign import data FIREBASE :: Effect
 foreign import data Firebase :: Type
 
 foreign import data FirebaseError :: Type
-
-foreign import data App :: Type
 
 

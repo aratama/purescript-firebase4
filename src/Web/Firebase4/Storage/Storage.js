@@ -1,9 +1,7 @@
 "use strict";
 
-exports._storage = function(firebase){
-    return function(app){
-        return firebase.storage(app);
-    };
+exports.storageNullable = function(app){
+    return app.storage();
 };
 
 exports.app = function(storage){

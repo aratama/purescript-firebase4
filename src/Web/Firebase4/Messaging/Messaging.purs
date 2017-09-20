@@ -1,16 +1,14 @@
 module Web.Firebase4.Messaging.Messaging (
-    messaging, deleteToken, getToken, onMessage, onTokenRefresh, requestPermission, setBackgroundMessageHandler, useServiceWorker
+    deleteToken, getToken, onMessage, onTokenRefresh, requestPermission, setBackgroundMessageHandler, useServiceWorker
 ) where 
 
 import Control.Monad.Aff (Aff, makeAff)
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Exception (Error)
 import Data.Foreign (Foreign)
-import Prelude (Unit, (<$>))
+import Prelude (Unit)
 import Web.Firebase4.Messaging.Type (Messaging, Token)
-import Web.Firebase4.Type (App, FIREBASE, Firebase)
-
-foreign import messaging :: App -> Firebase -> Messaging 
+import Web.Firebase4.Type (FIREBASE)
 
 foreign import deleteTokenEff :: forall eff
     . Token
