@@ -6,10 +6,9 @@ module Web.Firebase4.Auth.User (
 import Control.Monad.Aff (Aff, makeAff)
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Exception (Error)
-import Data.Nullable (Nullable, toMaybe)
-import Data.Maybe (Maybe)
 import Prelude (Unit)
-import Web.Firebase4.Type (FIREBASE, Firebase, User, UserInfo, AuthCredential, UserCredential)
+import Web.Firebase4.Type (FIREBASE)
+import Web.Firebase4.Auth.Type (User, UserInfo, AuthCredential, UserCredential)
 
 -- Properties
 

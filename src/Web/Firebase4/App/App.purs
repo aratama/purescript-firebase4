@@ -3,7 +3,8 @@ module Web.Firebase4.App.App (name, options, auth, database, delete) where
 import Control.Monad.Aff (Aff, makeAff)
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Exception (Error)
-import Web.Firebase4.Type (FIREBASE, Firebase, Auth, Options)
+import Web.Firebase4.Type (FIREBASE, Firebase, Options)
+import Web.Firebase4.Auth.Type (Auth)
 import Web.Firebase4.Database.Type (Database)
 import Data.Unit (Unit)
 

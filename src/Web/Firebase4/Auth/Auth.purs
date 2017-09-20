@@ -13,7 +13,9 @@ import Data.Maybe (Maybe(..))
 import Data.Nullable (Nullable, toMaybe)
 import Prelude (Unit, (<<<), (||))
 import Web.Firebase4.Database.Type (Reference, Snapshot)
-import Web.Firebase4.Type (Auth, AuthCredential, AuthProvider, FIREBASE, User, UserCredential)
+
+import Web.Firebase4.Type (FIREBASE)
+import Web.Firebase4.Auth.Type (Auth, AuthCredential, AuthProvider, User, UserCredential)
 
 foreign import signInAnonymously :: ∀eff . Auth → Eff (firebase :: FIREBASE | eff) Unit
 

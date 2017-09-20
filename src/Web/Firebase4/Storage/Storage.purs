@@ -1,4 +1,4 @@
-module Web.Firebase4.Storage (storage) where 
+module Web.Firebase4.Storage.Storage (storage) where 
 
 import Control.Monad.Eff (Eff)
 import Data.Maybe (Maybe)

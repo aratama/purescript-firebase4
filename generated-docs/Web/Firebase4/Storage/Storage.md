@@ -1,4 +1,4 @@
-## Module Web.Firebase4.Storage
+## Module Web.Firebase4.Storage.Storage
 
 #### `storage`
 

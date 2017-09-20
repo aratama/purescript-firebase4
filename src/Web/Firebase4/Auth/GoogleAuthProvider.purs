@@ -4,7 +4,8 @@ module Web.Firebase4.Auth.GoogleAuthProvider (
 
 
 import Control.Monad.Eff (Eff)
-import Web.Firebase4.Type (AuthProvider, FIREBASE)
+import Web.Firebase4.Auth.Type (AuthProvider)
+import Web.Firebase4.Type (FIREBASE)
 
 foreign import newGoogleAuthProvider :: ∀eff . Eff (firebase :: FIREBASE | eff) AuthProvider
 
