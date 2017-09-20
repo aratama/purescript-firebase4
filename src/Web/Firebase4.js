@@ -2,7 +2,7 @@
 
 /* global firebase */
 
-exports._initializeApp = function(config){
+exports.initializeAppNullable = function(config){
     return function(name){
         return function(){
             var global = new Function("return this")();
@@ -12,9 +12,7 @@ exports._initializeApp = function(config){
     };
 };
 
-
-
-exports.sDK_VERSION = firebase.SDK_VERSION;
+exports.sdkVersion = firebase.SDK_VERSION;
 
 exports.apps = function(){
     return firebase.apps;

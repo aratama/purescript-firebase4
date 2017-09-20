@@ -6,10 +6,10 @@
 initializeApp :: forall eff. Options -> Maybe String -> Eff (firebase :: FIREBASE | eff) Firebase
 ```
 
-#### `sDK_VERSION`
+#### `sdkVersion`
 
 ``` purescript
-sDK_VERSION :: String
+sdkVersion :: String
 ```
 
 #### `apps`

@@ -3,8 +3,6 @@ module Web.Firebase4.Storage.Reference (
     delete, getDownloadURL, getMetadata, putBlob, putUint8Array, putArrayBuffer, putString, getGSURL
 ) where 
 
-
-
 import Control.Monad.Aff (Aff, makeAff)
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Exception (Error)
