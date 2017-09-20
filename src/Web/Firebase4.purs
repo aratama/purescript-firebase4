@@ -5,7 +5,7 @@ module Web.Firebase4 (
 import Control.Monad.Eff (Eff)
 import Data.Nullable (Nullable, toNullable)
 import Data.Maybe (Maybe)
-import Web.Firebase4.Type (Options(..), FIREBASE, Firebase, Database, Auth)
+import Web.Firebase4.Type (FIREBASE, Firebase, Options)
 
 initializeApp :: ∀eff . Options → Maybe String -> Eff (firebase :: FIREBASE | eff) Firebase
 initializeApp config name = _initializeApp config (toNullable name)

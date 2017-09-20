@@ -1,8 +1,8 @@
 module Web.Firebase4.Type (
-    Options(..), FIREBASE, Firebase, FirebaseError, Database, 
-    Reference, Snapshot, Auth, User, UserInfo, 
-    Query, AuthProvider, UserCredential, EventType(..),
-    RedirectResult, showEventType, AuthCredential, AdditionalUserInfo
+    Options(..), FIREBASE, Firebase, FirebaseError, App, 
+    Auth, User, UserInfo, 
+    AuthProvider, UserCredential, 
+    RedirectResult, AuthCredential, AdditionalUserInfo
 ) where
 
 import Control.Monad.Eff (Eff, kind Effect)
@@ -33,11 +33,7 @@ foreign import data Firebase :: Type
 
 foreign import data FirebaseError :: Type
 
-foreign import data Database :: Type
-
-foreign import data Reference :: Type
-
-foreign import data Snapshot :: Type
+foreign import data App :: Type
 
 foreign import data Auth :: Type
 
@@ -46,9 +42,6 @@ type User = UserInfo
 foreign import data UserInfo :: Type
 
 foreign import data AuthProvider :: Type
-
--- foreign import data Query :: Type
-type Query = Reference
 
 type UserCredential = {
     user :: Maybe User, 
@@ -60,16 +53,5 @@ type UserCredential = {
 foreign import data AuthCredential :: Type 
 
 foreign import data AdditionalUserInfo :: Type 
-
-data EventType = Value | ChildAdded | ChildChanged | ChildRemoved | ChildMoved
-
-showEventType :: EventType -> String
-showEventType = case _ of
-    Value -> "value"
-    ChildAdded -> "child_added"
-    ChildChanged -> "child_changed"
-    ChildRemoved -> "child_removed"
-    ChildMoved -> "child_moved"
-
 
 foreign import data RedirectResult :: Type

@@ -1,12 +1,11 @@
 module Web.Firebase4.Database.Query (
     orderByKey, limitToFirst, limitToLast, 
     startAt, endAt, equalToWithKey, 
-    startAtWithKey, endAtWithKey, equalToWithKey
+    startAtWithKey, endAtWithKey
 ) where 
 
 import Data.Foreign (Foreign)
-import Data.Nullable (Nullable)
-import Web.Firebase4.Type (Query)
+import Web.Firebase4.Database.Type (Query)
 
 foreign import orderByKey :: forall eff. Query -> Query
 

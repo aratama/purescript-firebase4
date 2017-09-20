@@ -5,7 +5,8 @@ module Web.Firebase4.Database.Snapshot (
 import Control.Monad.Eff (Eff)
 import Data.Foreign (Foreign)
 import Prelude (Unit)
-import Web.Firebase4.Type (FIREBASE, Snapshot)
+import Web.Firebase4.Type (FIREBASE)
+import Web.Firebase4.Database.Type (Snapshot)
 
 foreign import val :: Snapshot → Foreign
 

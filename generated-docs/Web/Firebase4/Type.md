@@ -32,22 +32,10 @@ data Firebase :: Type
 data FirebaseError :: Type
 ```
 
-#### `Database`
+#### `App`
 
 ``` purescript
-data Database :: Type
-```
-
-#### `Reference`
-
-``` purescript
-data Reference :: Type
-```
-
-#### `Snapshot`
-
-``` purescript
-data Snapshot :: Type
+data App :: Type
 ```
 
 #### `Auth`
@@ -74,12 +62,6 @@ data UserInfo :: Type
 data AuthProvider :: Type
 ```
 
-#### `Query`
-
-``` purescript
-type Query = Reference
-```
-
 #### `UserCredential`
 
 ``` purescript
@@ -96,23 +78,6 @@ data AuthCredential :: Type
 
 ``` purescript
 data AdditionalUserInfo :: Type
-```
-
-#### `EventType`
-
-``` purescript
-data EventType
-  = Value
-  | ChildAdded
-  | ChildChanged
-  | ChildRemoved
-  | ChildMoved
-```
-
-#### `showEventType`
-
-``` purescript
-showEventType :: EventType -> String
 ```
 
 #### `RedirectResult`

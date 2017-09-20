@@ -3,16 +3,17 @@ module Web.Firebase4.Auth.Auth (
     onAuthStateChanged, getRedirectResult
 ) where 
 
-import Control.Monad.Except (runExcept)
+import Control.Monad.Aff (Aff, makeAff)
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Exception (Error)
-import Control.Monad.Aff (Aff, makeAff)
-import Data.Nullable (Nullable, toMaybe, toNullable)
-import Data.Maybe (Maybe(..))
+import Control.Monad.Except (runExcept)
 import Data.Either (Either(..))
-import Prelude (Unit, (<<<), (>>=), (||))
-import Web.Firebase4.Type (FIREBASE, Auth, User, AuthProvider, UserCredential, RedirectResult, AuthCredential, Snapshot, Reference)
-import Data.Foreign (Foreign, readNullOrUndefined, readString, unsafeFromForeign, isNull, isUndefined)
+import Data.Foreign (Foreign, isNull, isUndefined, readString, unsafeFromForeign)
+import Data.Maybe (Maybe(..))
+import Data.Nullable (Nullable, toMaybe)
+import Prelude (Unit, (<<<), (||))
+import Web.Firebase4.Database.Type (Reference, Snapshot)
+import Web.Firebase4.Type (Auth, AuthCredential, AuthProvider, FIREBASE, User, UserCredential)
 
 foreign import signInAnonymously :: ∀eff . Auth → Eff (firebase :: FIREBASE | eff) Unit
 
@@ -73,3 +74,4 @@ onceAff reference = makeAff \reject resolve → _onceAff reject resolve referenc
 
 signInWithPopupAff :: ∀eff . AuthProvider → Auth → Aff (firebase :: FIREBASE | eff) UserCredential
 signInWithPopupAff provider auth = makeAff (signInWithPopup provider auth)
+

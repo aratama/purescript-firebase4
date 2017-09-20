@@ -4,15 +4,10 @@ module Web.Firebase4.Database.Reference (
 
 import Control.Monad.Eff (Eff, kind Effect)
 import Control.Monad.Eff.Exception (Error)
-import Control.Monad.Aff (Aff, makeAff)
 import Data.Foreign (Foreign)
-import Data.Foreign.Class (class Encode, class Decode)
-import Data.Nullable (Nullable, toMaybe, toNullable)
-import Data.Maybe (Maybe)
-import Prelude (Unit, (<<<))
-import Data.Generic.Rep (class Generic)
-import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
-import Web.Firebase4.Type (FIREBASE, Reference, Snapshot, showEventType, EventType, Query)
+import Prelude (Unit)
+import Web.Firebase4.Type (FIREBASE)
+import Web.Firebase4.Database.Type (EventType, Reference, Snapshot, showEventType)
 
 foreign import set :: ∀eff . Foreign -> Reference -> Eff (firebase :: FIREBASE | eff) Unit
 
