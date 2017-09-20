@@ -12,7 +12,6 @@ import Data.Foreign (Foreign, isNull, isUndefined, readString, unsafeFromForeign
 import Data.Maybe (Maybe(..))
 import Data.Nullable (Nullable, toMaybe)
 import Prelude (Unit, (<<<), (||))
-import Web.Firebase4.Database.Type (Reference, Snapshot)
 
 import Web.Firebase4.Type (FIREBASE)
 import Web.Firebase4.Auth.Type (Auth, AuthCredential, AuthProvider, User, UserCredential)
@@ -65,14 +64,6 @@ type UserCredentialRaw = {
     operationType :: Foreign,
     additionalUserInfo :: Foreign
 }
-
-
-
-
-foreign import _onceAff :: ∀eff. (Error → Eff (firebase :: FIREBASE | eff) Unit) → (Snapshot → Eff (firebase :: FIREBASE | eff) Unit) → Reference → Eff (firebase :: FIREBASE | eff) Unit
-
-onceAff :: ∀eff. Reference → Aff (firebase :: FIREBASE | eff) Snapshot
-onceAff reference = makeAff \reject resolve → _onceAff reject resolve reference
 
 signInWithPopupAff :: ∀eff . AuthProvider → Auth → Aff (firebase :: FIREBASE | eff) UserCredential
 signInWithPopupAff provider auth = makeAff (signInWithPopup provider auth)

@@ -15,13 +15,13 @@ remove :: forall eff. Reference -> Eff (firebase :: FIREBASE | eff) Unit
 #### `on`
 
 ``` purescript
-on :: forall eff. EventType -> (Error -> Eff (firebase :: FIREBASE | eff) Unit) -> (Snapshot -> Eff (firebase :: FIREBASE | eff) Unit) -> Reference -> Eff (firebase :: FIREBASE | eff) Unit
+on :: forall eff. EventType -> (Error -> Eff (firebase :: FIREBASE | eff) Unit) -> (DataSnapshot -> Eff (firebase :: FIREBASE | eff) Unit) -> Reference -> Eff (firebase :: FIREBASE | eff) Unit
 ```
 
 #### `once`
 
 ``` purescript
-once :: forall eff. EventType -> (Error -> Eff (firebase :: FIREBASE | eff) Unit) -> (Snapshot -> Eff (firebase :: FIREBASE | eff) Unit) -> Reference -> Eff (firebase :: FIREBASE | eff) Unit
+once :: forall eff. EventType -> (Error -> Eff (firebase :: FIREBASE | eff) Unit) -> (DataSnapshot -> Eff (firebase :: FIREBASE | eff) Unit) -> Reference -> Eff (firebase :: FIREBASE | eff) Unit
 ```
 
 #### `off`

@@ -3,7 +3,7 @@
 #### `initializeApp`
 
 ``` purescript
-initializeApp :: forall eff. Options -> Maybe String -> Eff (firebase :: FIREBASE | eff) Firebase
+initializeApp :: forall eff. Options -> Maybe String -> Eff (firebase :: FIREBASE | eff) App
 ```
 
 #### `sdkVersion`
@@ -15,7 +15,7 @@ sdkVersion :: String
 #### `apps`
 
 ``` purescript
-apps :: forall eff. Eff (firebase :: FIREBASE | eff) (Array Firebase)
+apps :: forall eff. Eff (firebase :: FIREBASE | eff) (Array App)
 ```
 
 

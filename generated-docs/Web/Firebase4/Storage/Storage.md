@@ -3,7 +3,7 @@
 #### `storage`
 
 ``` purescript
-storage :: Maybe Firebase -> Storage
+storage :: Maybe App -> Storage
 ```
 
 

@@ -20,10 +20,10 @@ Encode Options
 data FIREBASE :: Effect
 ```
 
-#### `Firebase`
+#### `App`
 
 ``` purescript
-data Firebase :: Type
+data App :: Type
 ```
 
 #### `FirebaseError`

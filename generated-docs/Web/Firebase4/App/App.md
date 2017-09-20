@@ -3,37 +3,37 @@
 #### `name`
 
 ``` purescript
-name :: Firebase -> String
+name :: App -> String
 ```
 
 #### `options`
 
 ``` purescript
-options :: Firebase -> Options
+options :: App -> Options
 ```
 
 #### `auth`
 
 ``` purescript
-auth :: forall eff. Firebase -> Eff (firebase :: FIREBASE | eff) Auth
+auth :: forall eff. App -> Eff (firebase :: FIREBASE | eff) Auth
 ```
 
 #### `database`
 
 ``` purescript
-database :: forall eff. Firebase -> Eff (firebase :: FIREBASE | eff) Database
+database :: forall eff. App -> Eff (firebase :: FIREBASE | eff) Database
 ```
 
 #### `messaging`
 
 ``` purescript
-messaging :: Firebase -> Messaging
+messaging :: App -> Messaging
 ```
 
 #### `delete`
 
 ``` purescript
-delete :: forall eff. Firebase -> Aff (firebase :: FIREBASE | eff) Unit
+delete :: forall eff. App -> Aff (firebase :: FIREBASE | eff) Unit
 ```
 
 

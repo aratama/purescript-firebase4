@@ -7,24 +7,24 @@ import Data.Unit (Unit)
 import Web.Firebase4.Auth.Type (Auth)
 import Web.Firebase4.Database.Type (Database)
 import Web.Firebase4.Messaging.Type (Messaging)
-import Web.Firebase4.Type (FIREBASE, Firebase, Options)
+import Web.Firebase4.Type (FIREBASE, App, Options)
 
-foreign import name :: Firebase -> String 
+foreign import name :: App -> String 
 
-foreign import options :: Firebase -> Options
+foreign import options :: App -> Options
 
-foreign import auth :: forall eff . Firebase -> Eff (firebase :: FIREBASE | eff) Auth
+foreign import auth :: forall eff . App -> Eff (firebase :: FIREBASE | eff) Auth
 
-foreign import database :: forall eff . Firebase -> Eff (firebase :: FIREBASE | eff) Database
+foreign import database :: forall eff . App -> Eff (firebase :: FIREBASE | eff) Database
 
-foreign import messaging :: Firebase -> Messaging
+foreign import messaging :: App -> Messaging
 
 foreign import deleteEff :: forall eff 
-    . Firebase 
+    . App 
     -> (Error -> Eff (firebase :: FIREBASE | eff) Unit)
     -> (Unit -> Eff (firebase :: FIREBASE | eff) Unit)
     -> Eff (firebase :: FIREBASE | eff) Unit
 
-delete :: forall eff. Firebase -> Aff (firebase :: FIREBASE | eff) Unit 
+delete :: forall eff. App -> Aff (firebase :: FIREBASE | eff) Unit 
 delete app = makeAff (deleteEff app)
 

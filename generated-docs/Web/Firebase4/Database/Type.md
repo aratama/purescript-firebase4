@@ -12,10 +12,10 @@ data Database :: Type
 data Reference :: Type
 ```
 
-#### `Snapshot`
+#### `DataSnapshot`
 
 ``` purescript
-data Snapshot :: Type
+data DataSnapshot :: Type
 ```
 
 #### `Query`
