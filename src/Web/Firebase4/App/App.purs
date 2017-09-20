@@ -13,9 +13,9 @@ foreign import name :: App -> String
 
 foreign import options :: App -> Options
 
-foreign import auth :: forall eff . App -> Eff (firebase :: FIREBASE | eff) Auth
+foreign import auth :: App -> Auth
 
-foreign import database :: forall eff . App -> Eff (firebase :: FIREBASE | eff) Database
+foreign import database :: App -> Database
 
 foreign import messaging :: App -> Messaging
 

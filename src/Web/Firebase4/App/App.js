@@ -9,15 +9,11 @@ exports.options = function(app){
 };
 
 exports.database = function(firebase){
-    return function(){
-        return firebase.database();
-    };
+    return firebase.database();
 };
 
 exports.auth = function(firebase){
-    return function(){
-        return firebase.auth();
-    };
+    return firebase.auth();
 };
 
 exports.messaging = function(app){

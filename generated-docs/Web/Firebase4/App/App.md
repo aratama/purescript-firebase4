@@ -15,13 +15,13 @@ options :: App -> Options
 #### `auth`
 
 ``` purescript
-auth :: forall eff. App -> Eff (firebase :: FIREBASE | eff) Auth
+auth :: App -> Auth
 ```
 
 #### `database`
 
 ``` purescript
-database :: forall eff. App -> Eff (firebase :: FIREBASE | eff) Database
+database :: App -> Database
 ```
 
 #### `messaging`
